@@ -6,6 +6,8 @@ import '@/scss-demo.scss'
 import vars from '@/scss-export.scss';
 import '@/less-demo.less'
 import '@/stylus-demo.styl'
+import {shared} from '@/shared.js'
+console.log(shared)
 
 console.log(vars)
 

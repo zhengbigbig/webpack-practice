@@ -59,7 +59,7 @@ module.exports = {
                 common: {
                     priority: 5,
                     minSize: 0,
-                    minChunks: 2,
+                    minChunks: 2, // 至少被2个文件共同引用
                     chunks: 'all',
                     name: 'common'
                 }
