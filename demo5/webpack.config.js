@@ -19,6 +19,10 @@ const cssLoaders = (...loaders) => [
 
 module.exports = {
     mode,
+    entry: {
+        main: './src/index.js',
+        admin: './src/admin.js'
+    },
     plugins: [
         new ESLintPlugin({
             extensions: ['.js', '.jsx', '.ts', '.tsx'] // 不加.jsx就不会检查jsx文件
@@ -26,7 +30,14 @@ module.exports = {
         mode === 'production' && new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css'
         }),
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            filename: 'index.html',
+            chunks: ['main']
+        }), // 不写也会默认引入main
+        new HtmlWebpackPlugin({
+            filename: 'admin.html',
+            chunks: ['admin']
+        })
     ].filter(Boolean),
     output: {
         filename: '[name].[contenthash].js',
