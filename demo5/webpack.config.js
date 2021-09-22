@@ -10,14 +10,15 @@ module.exports = {
         rules: [
             // 使用webpack调用babel-loader去打包
             {
-                test: /\.jsx?$/,
+                test: /\.[jt]sx?$/,
                 exclude: /node_modules/, // 排除
                 use: {
                     loader: 'babel-loader',
                     options: {
                         presets: [
                             ['@babel/preset-env'],
-                            ['@babel/preset-react', {runtime: 'classic'}] // classic使用经典版
+                            ['@babel/preset-react', {runtime: 'classic'}], // classic使用经典版
+                            ['@babel/preset-typescript']
                         ]
 
                     }
