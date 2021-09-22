@@ -55,6 +55,31 @@ module.exports = {
                         }
                     },
                 ]
+            },
+            {
+                test: /\.less$/i,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                compileType: 'icss',
+                            }
+                        }
+                    },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            additionalData: `
+                                @import "@/less-vars.scss";
+                            `,
+                            sassOptions: {
+                                includePaths: [__dirname]
+                            }
+                        }
+                    },
+                ]
             }
         ]
     }
