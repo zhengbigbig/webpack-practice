@@ -1,5 +1,11 @@
+const ESLintPlugin = require('eslint-webpack-plugin')
 module.exports = {
     mode: 'production',
+    plugins: [
+        new ESLintPlugin({
+            extensions: ['.js', '.jsx'] // 不加.jsx就不会检查jsx文件
+        })
+    ],
     module: {
         rules: [
             // 使用webpack调用babel-loader去打包
@@ -11,7 +17,7 @@ module.exports = {
                     options: {
                         presets: [
                             ['@babel/preset-env'],
-                            ['@babel/preset-react']
+                            ['@babel/preset-react', {runtime: 'classic'}] // classic使用经典版
                         ]
 
                     }
