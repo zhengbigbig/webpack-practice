@@ -1,11 +1,18 @@
 const ESLintPlugin = require('eslint-webpack-plugin')
+const path = require('path')
+
 module.exports = {
     mode: 'production',
     plugins: [
         new ESLintPlugin({
-            extensions: ['.js', '.jsx','.ts','.tsx'] // 不加.jsx就不会检查jsx文件
+            extensions: ['.js', '.jsx', '.ts', '.tsx'] // 不加.jsx就不会检查jsx文件
         })
     ],
+    resolve: {
+        alias: {
+            '@': path.join(__dirname, 'src/')
+        }
+    },
     module: {
         rules: [
             // 使用webpack调用babel-loader去打包
@@ -23,6 +30,12 @@ module.exports = {
 
                     }
                 }
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                    'style-loader', 'css-loader', 'sass-loader',
+                ]
             }
         ]
     }
