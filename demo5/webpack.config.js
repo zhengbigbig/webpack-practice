@@ -9,7 +9,11 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['@babel/preset-env'] // presets预先定义的规则
+                        presets: [
+                            ['@babel/preset-env'],
+                            ['@babel/preset-react']
+                        ]
+
                     }
                 }
             }
