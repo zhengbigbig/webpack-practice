@@ -72,10 +72,29 @@ module.exports = {
                         loader: 'less-loader',
                         options: {
                             additionalData: `
-                                @import "@/less-vars.scss";
+                                @import "@/less-vars.less";
                             `,
-                            sassOptions: {
-                                includePaths: [__dirname]
+                        }
+                    },
+                ]
+            },
+            {
+                test: /\.styl(us)?$/i,
+                use: [
+                    'style-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                compileType: 'icss',
+                            }
+                        }
+                    },
+                    {
+                        loader: 'stylus-loader',
+                        options: {
+                            stylusOptions: {
+                                import: [path.resolve(__dirname,'src/stylus-vars.styl')]
                             }
                         }
                     },

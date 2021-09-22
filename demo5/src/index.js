@@ -5,6 +5,7 @@ import {TsxDemo} from "./tsx-demo.tsx";
 import '@/scss-demo.scss'
 import vars from '@/scss-export.scss';
 import '@/less-demo.less'
+import '@/stylus-demo.styl'
 
 console.log(vars)
 
