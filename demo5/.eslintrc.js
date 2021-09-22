@@ -6,14 +6,16 @@ module.exports = {
     'react/react-in-jsx-scope': [2],
     'no-console': [0]
   },
+    // 单独定义TS规则
   overrides: [{
     files: ['*.ts', '*.tsx'],
     parserOptions: {
-      project: './tsconfig.json',
+      project: './tsconfig.json', // 告诉ts去哪里检查等配置文件
     },
-    extends: ['airbnb-typescript'],
+    extends: ['airbnb-typescript'], // 继承ts规则
     rules: {
-      '@typescript-eslint/object-curly-spacing': [0],
+      // 自定义规则
+      '@typescript-eslint/object-curly-spacing': [0], // 0代表忽略，1代表警告，2代表报错
       'import/prefer-default-export': [0],
       'no-console': [0],
       'import/extensions':[0]
